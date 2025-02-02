@@ -1,0 +1,200 @@
+@local=http://localhost:3005
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzkwMDNlOTA1NWI0MTY3YTJmMjMyNjciLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzM4MzU0MzA0fQ.JIefpDt2hgc60hnkD1hBzpw9fYK-qzG1qBWqXF-715U
+@adminToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzkwMDM3ZjA1NWI0MTY3YTJmMjMyNjMiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3MzgxNjY3MTR9.hy-tAKhfVbPQ6jHfS1X3eg97_PwNTU0w6HIjfL8AXeo
+
+#register user
+POST {{local}}/api/users/
+Content-Type: application/json
+
+{
+    "name": {
+        "first": "tamush",
+        "middle": "ha",
+        "last": "mamush"
+    },
+    "phone": "0555555555",
+    "email": "tauh@gmail.com", 
+    "password": "1234567", 
+    "address": {
+        "state": "New york",
+        "country": "USA",
+        "city": "NYC",
+        "street": "broadway",
+        "houseNumber": "77"
+    },
+    "image": {
+        "url": "www.stamhirtut.co.il/yo/yoyo",
+        "alt": "mamashStamHirtut"
+    },
+    "isBusiness": true
+}
+
+#login
+###
+POST {{local}}/api/auth/
+Content-Type: application/json
+
+{
+    "email": "tamuhhh@gmail.com",
+    "password": "1234567"
+}
+
+#get all users
+###
+GET {{local}}/api/users
+x-auth-token: {{adminToken}}
+
+#get user
+###
+GET {{local}}/api/users/679a2fcfddfd15f7c0414f12
+x-auth-token: {{adminToken}}
+Content-Type: application/json
+
+#edit user
+###
+PUT {{local}}/api/users/me
+x-auth-token: {{token}}
+Content-Type: application/json
+
+{
+"name": {
+        "first": "tas",
+        "middle": "ha",
+        "last": "mamush"
+    },
+    "phone": "0555995555",
+    "email": "tamuhhh@gmail.com", 
+    "password": "1234567", 
+    "address": {
+        "state": "New york",
+        "country": "USA",
+        "city": "NYC",
+        "street": "broadway",
+        "houseNumber": "77"
+    },
+    "image": {
+        "url": "www.stamhirtut.co.il/yo/yoyo",
+        "alt": "mamashStamHirtut"
+    },
+        "isBusiness": true
+}
+
+#change isBusiness status
+###
+PATCH {{local}}/api/users/me/business-status
+x-auth-token: {{token}}
+Content-Type: application/json
+
+#delete
+###
+DELETE {{local}}/api/users/679003e9055b4167a2f23267
+x-auth-token: {{adminToken}}
+Content-Type: application/json
+
+#get all cards
+###
+GET {{local}}/api/cards
+x-auth-token: {{token}}
+Content-Type: application/json
+
+#get user cards
+###
+GET {{local}}/api/cards/my-cards
+x-auth-token: {{token}}
+Content-Type: application/json
+
+#get card
+###
+GET {{local}}/api/cards/679e4574a997d1dc2fd2f2bc
+Content-Type: application/json
+
+#create a new card
+###
+POST {{local}}/api/cards/
+x-auth-token: {{token}}
+Content-Type: application/json
+
+{
+  "title": "Card Title",
+  "subtitle": "Card Subtitle",
+  "description": "Card Description",
+    "Phone" : "0545646464",
+    "email" : "alex@gmail.com",
+    "web" : "http://example.com/",
+    "Image" : {
+        "url" : "http://example.com/image.jpg",
+        "alt" : "Profile Picture"
+    },
+    "address" : {
+      "state": "California",
+      "country": "USA",
+        "city" : "Tel Aviv",
+        "street" : "Rothschild",
+        "houseNumber" : 12,
+        "zip" : 12345
+    }
+}
+
+#edit card
+###
+PUT {{local}}/api/cards/679e4574a997d1dc2fd2f2bc
+x-auth-token: {{token}}
+Content-Type: application/json
+
+{
+  "title": "Card Title",
+  "subtitle": "Carubtitle",
+  "description": "Card Description",
+    "Phone" : "0545646464",
+    "email" : "alex@gmail.com",
+    "web" : "http://example.com/",
+    "Image" : {
+        "url" : "http://example.com/image.jpg",
+        "alt" : "Profile Picture"
+    },
+    "address" : {
+      "state": "California",
+      "country": "USA",
+        "city" : "Tel Aviv",
+        "street" : "Rothschild",
+        "houseNumber" : 12,
+        "zip" : 12345
+    }
+}
+
+
+#like card
+###
+PATCH {{local}}/api/cards/679e4574a997d1dc2fd2f2bc
+x-auth-token: {{token}}
+
+#delete card
+###
+DELETE {{local}}/api/cards/679e4652a997d1dc2fd2f2bf
+x-auth-token: {{token}}
+
+
+#
+# {
+#     "title": "nhdeilsjm",
+#     "subtitle": "hfld,ucjs,h",
+#     "description": "eskhfdsbahccjsdgc",
+#     "Phone": "0555555555",
+#     "email": "yoyoyo@gamil.com",
+#     "web": "http://example.com/",
+#     "Image": {
+#       "url": "http://example.com/image.jpg",
+#       "alt": "jdjkscnks",
+#     },
+#     "address": {
+#       "state": "nciefidxl",
+#       "country": "hcuccjc",
+#       "city": "hfdhjjd",
+#       "street": "test",
+#       "houseNumber": 749484,
+#       "zip": 683242
+# }
+# }
+
+
+
