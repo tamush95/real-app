@@ -1,4 +1,4 @@
-@local=http://localhost:3005
+@local=http://localhost:3050
 @token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzkwMDNlOTA1NWI0MTY3YTJmMjMyNjciLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzM4MzU0MzA0fQ.JIefpDt2hgc60hnkD1hBzpw9fYK-qzG1qBWqXF-715U
 @adminToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzkwMDM3ZjA1NWI0MTY3YTJmMjMyNjMiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3MzgxNjY3MTR9.hy-tAKhfVbPQ6jHfS1X3eg97_PwNTU0w6HIjfL8AXeo
 
@@ -118,10 +118,10 @@ Content-Type: application/json
   "title": "Card Title",
   "subtitle": "Card Subtitle",
   "description": "Card Description",
-    "Phone" : "0545646464",
+    "phone" : "0545646464",
     "email" : "alex@gmail.com",
     "web" : "http://example.com/",
-    "Image" : {
+    "image" : {
         "url" : "http://example.com/image.jpg",
         "alt" : "Profile Picture"
     },

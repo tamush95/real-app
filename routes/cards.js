@@ -6,8 +6,8 @@ const authMW = require("../middleware/authMW");
 router.post("/", authMW, async (req, res) => {
   // Validate the request body
   const { error } = validateCard(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
-
+  if (error) return res.status(400).json(error.details[0].message);
+  console.log(error);
   try {
     // Process
     const card = await new Card({
@@ -27,7 +27,7 @@ router.post("/", authMW, async (req, res) => {
 });
 
 // Route to get all cards
-router.get("/", authMW, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const cards = await Card.find();
     res.json(cards);

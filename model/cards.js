@@ -21,7 +21,7 @@ const cardSchema = new mongoose.Schema({
     minlength: 2,
     maxlength: 1024,
   },
-  Phone: {
+  phone: {
     type: String,
     required: true,
     minlength: 9,
@@ -37,7 +37,7 @@ const cardSchema = new mongoose.Schema({
     required: true,
     minlength: 14,
   },
-  Image: {
+  image: {
     url: {
       type: String,
       minlength: 14,
@@ -122,10 +122,10 @@ function validateCard(card) {
     title: Joi.string().min(2).max(256).required(),
     subtitle: Joi.string().min(2).max(256).required(),
     description: Joi.string().min(2).max(1024).required(),
-    Phone: Joi.string().min(9).max(11).required(),
+    phone: Joi.string().min(9).max(11).required(),
     email: Joi.string().min(5).required(),
     web: Joi.string().min(14).required(),
-    Image: Joi.object({
+    image: Joi.object({
       url: Joi.string().min(14).optional().allow(""),
       alt: Joi.string().min(2).max(256).optional().allow(""),
     }),
